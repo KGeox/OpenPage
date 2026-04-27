@@ -8,9 +8,52 @@
             <h1>home</h1>
         </div>
 
+        <div>
+            <a href="{% url 'create-Post' %}">Create Post</a>
+            {% for post in posts %}
+            <div>
+                <a href="{% url 'delete-Post' %}">delete post</a>
+                <a  href="{% url 'update-Post' %}">update post</a>
+                <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
+                <p>{{ post.content }}</p>
+                <small>by {{ post.author }} on {{ post.date_posted }}</small>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+
+        <div>
+            <a href="{% url 'create-Book' %}">Add a Book</a>
+            {% for book in books %}
+            <div>
+
+                <a href="{% url 'book' book.id %}"><h2>{{ book.title }}</h2></a>
+                <p>{{ book.author }}</p>
+                <p>{{ book.summary }}</p>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+        <div>
+            <a href="{% url 'create-BookClub' %}">Create a BookClub</a>
+            {% for bookclub in bookclubs %}
+            <div>
+                <a href="{% url 'delete-BookClub' %}">delete BookClub</a>
+                <a href="{% url 'bookclub' bookclub.id %}"><h2>{{ bookclub.name }}</h2></a>
+                <p>{{ bookclub.description }}</p>
+                <p>{{ bookclub.host }}</p>
+            </div>
+            {% endfor %}
+            <hr>
+        </div>
+
+
+
+
 
 
     </div>
+
 
 
 

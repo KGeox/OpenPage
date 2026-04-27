@@ -10,9 +10,10 @@ from .forms import *
 def home(request):
     posts = Post.objects.all()
     books = Book.objects.all()
+    bookclubs = BookClub.objects.all()
 
 
-    context = {'posts': posts, 'books': books}
+    context = {'posts': posts, 'books': books, 'bookclubs': bookclubs}
     return render(request, "home.html", context)
 
 
@@ -35,7 +36,7 @@ def createPost(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.author = request.user.profile
             post.save()
             return redirect('home')
     context = {'form': form}
@@ -69,8 +70,7 @@ def deletePost(request, pk):
 
 def book(request, pk):
     book = Book.objects.get(id=pk)
-    posts = book.posts_set.all()
-    context = {'book': book, 'posts': posts}
+    context = {'book': book}
     return render(request, 'main/book.html', context)
 
 
@@ -112,7 +112,7 @@ def deleteBookClub(request, pk):
 
 
 def loginPage(request):
-    return HttpResponse("Hello Login")
+    return render(request, 'login_register.html')
 
 
 def about(request):

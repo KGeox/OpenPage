@@ -3,6 +3,11 @@ from django.forms import ModelForm
 from .models import *
 from django.contrib.auth.models import User
 
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_image', 'bio']
+
 class PostForm(ModelForm):
     class Meta:
         model = Post

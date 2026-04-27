@@ -1,6 +1,15 @@
 {% extends 'main.html' %}
 
 {% block content %}
-
+<div>
+    <div>
+        <h1>Book Club</h1>
+    </div>
+    <div>
+        <h1>{{ bookclub.name }}</h1>
+        <p>{{ bookclub.description }}</p>
+        <h3>Hosted by: {{ bookclub.host }}</h3>
+    </div>
+</div>
 
 {% endblock %}

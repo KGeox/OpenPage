@@ -1,7 +1,12 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Profile</h1>
+    <h1>Profile</h1>
+<div>
+    <div>
+        <h1>Name: {{ profile.user.username }}</h1>
+    </div>
+</div>    
     
 
 {%  endblock %}

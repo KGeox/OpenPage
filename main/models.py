@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    profile_image = models.ImageField(default='default.jpg', upload_to='Images/profile_pics')
     bio = models.TextField()
     streak = models.IntegerField(default=0)
 
@@ -18,33 +18,36 @@ class Post(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=2000)
-    image = models.ImageField(default='default.jpg', upload_to='posts')
+    image = models.ImageField(default='default.jpg', upload_to='Images/posts')
     reads = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title + " by " + self.author
+        return self.title + " by " + self.author.user.username
 
 class Book(models.Model):
-    GENRE_CHOICES = {
-        (1, 'Other'),
-        (2, 'Fiction'),
-        (3, 'Sci-Fi'),
-        (4, 'History'),
-        (5, 'Philosophy'),
-        (6, 'Biography'),
-        (7, 'Horror'),
-        (8, 'Adventure'),
-        (9, 'Romance'),
-        (10, 'Poetry'),
-        (11, 'Thriller'),
-    }
+    GENRE_CHOICES = [
+        ('fiction', 'Fiction'),
+        ('romance', 'Romance'),
+        ('non-fiction', 'Non-fiction'),
+        ('fantasy', 'Fantasy'),
+        ('sci-fi', 'Sci-Fi'),
+        ('historical', 'Historical'),
+        ('mystery', 'Mystery'),
+        ('biography', 'Biography'),
+        ('philosophy', 'Philosophy'),
+        ('poetry', 'Poetry'),
+        ('horror', 'Horror'),
+        ('adventure', 'Adventure'),
+        ('psychology', 'Psychology'),
+        ('other', 'Other'),
+    ]
     author = models.CharField(max_length=200)
     title = models.CharField(max_length=500)
-    image = models.ImageField(default='default.jpg', upload_to='books')
-    genre = models.TextField(max_length= 100, choices=GENRE_CHOICES, default="Other")
+    image = models.ImageField(default='default.jpg', upload_to='Images/books')
+    genre = models.TextField(max_length= 100, choices=GENRE_CHOICES, default="other")
     summary = models.TextField(max_length=5000, null=True)
     valid = models.BooleanField(default=False)
 
@@ -63,7 +66,7 @@ class Comment(models.Model):
         ordering = ['-date_posted']
 
     def __str__(self):
-        return self.author + " wrote " + self.content
+        return self.author.user.username + " wrote " + "'" + self.content +"'"
 
 class BookClub(models.Model):
     name = models.CharField(max_length=200)
@@ -74,4 +77,14 @@ class BookClub(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name + " hosted by " + self.host
+        return self.name + " hosted by " + self.host.user.username
+
+class Chat_BC(models.Model):
+    bookClub = models.ForeignKey(BookClub, on_delete=models.CASCADE)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    content = models.TextField(max_length=5000)
+    date_updated = models.DateTimeField(auto_now=True)
+    date_written = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author.user.username + " wrote " + "'" + self.content +"'"
