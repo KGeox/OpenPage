@@ -15,12 +15,10 @@ def home(request):
     context = {'posts': posts, 'books': books}
     return render(request, "home.html", context)
 
+
 def profile(request, pk):
     profile = Profile.objects.get(id=pk)
-    posts = profile.posts_set.all()
-    books = profile.books_set.all()
-    comments = profile.comments_set.all()
-    context = {'profile': profile, 'posts': posts, 'books': books, 'comments': comments}
+    context = {'profile': profile}
     return render(request, "profile.html", context)
 
 def post(request, pk):
@@ -29,6 +27,7 @@ def post(request, pk):
 
     context = {'post': post, 'comments': comments}
     return render(request, "main/post.html", context)
+
 
 def createPost(request):
     form = PostForm()
@@ -41,6 +40,7 @@ def createPost(request):
             return redirect('home')
     context = {'form': form}
     return render(request,'main/post_form.html', context )
+
 
 def updatePost(request, pk):
     post = Post.objects.get(id=pk)
@@ -55,6 +55,7 @@ def updatePost(request, pk):
     context = {'form': form}
     return render(request,'main/post_form.html', context)
 
+
 def deletePost(request, pk):
     post = Post.objects.get(id=pk)
 
@@ -65,11 +66,13 @@ def deletePost(request, pk):
 
     return render(request,'main/post_form.html', context)
 
+
 def book(request, pk):
     book = Book.objects.get(id=pk)
     posts = book.posts_set.all()
     context = {'book': book, 'posts': posts}
     return render(request, 'main/book.html', context)
+
 
 def createBook(request):
     form = BookForm
@@ -82,16 +85,35 @@ def createBook(request):
     context = {'form': form}
     return render(request,'main/post_form.html', context)
 
+
 def bookclub(request, pk):
     bookclub = BookClub.objects.get(id=pk)
     context = {'bookclub': bookclub}
     return render(request,'main/bookclub.html', context)
 
+
 def createBookClub(request):
+    form = BookClubForm
+    if request.method == 'POST':
+        form = BookClubForm(request.POST, request.FILES)
+        if form.is_valid():
+            club = form.save(commit=False)
+            club.host = request.user.profile
+            club.save()
+            club.members.add(request.user.profile)
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request,'main/post_form.html', context)
+
+
+def deleteBookClub(request, pk):
     pass
+
 
 def loginPage(request):
     return HttpResponse("Hello Login")
+
 
 def about(request):
     return render(request, 'about.html')

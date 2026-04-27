@@ -13,3 +13,9 @@ class BookForm(ModelForm):
     class Meta:
         model = Book
         fields = ['author','title', 'genre', 'image', 'summary']
+
+
+class BookClubForm(ModelForm):
+    class Meta:
+        model = BookClub
+        fields = ['name', 'description', 'current_book']
