@@ -120,7 +120,7 @@ def book(request, pk):
 
 
 def createBook(request):
-    form = BookForm
+    form = BookForm()
     if request.method == 'POST':
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
@@ -132,13 +132,24 @@ def createBook(request):
 
 
 def bookclub(request, pk):
+    # TODO: Add chats in the club
     bookclub = BookClub.objects.get(id=pk)
-    context = {'bookclub': bookclub}
+    chats = Chat_BC.objects.filter(bookClub=bookclub).order_by('date_written')
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        if content:
+            Chat_BC.objects.create(
+                bookClub=bookclub,
+                author=request.user.profile,
+                content = content,
+            )
+        return redirect('bookclub', pk=pk)
+    context = {'bookclub': bookclub, 'chats':chats}
     return render(request,'main/bookclub.html', context)
 
 
 def createBookClub(request):
-    form = BookClubForm
+    form = BookClubForm()
     if request.method == 'POST':
         form = BookClubForm(request.POST, request.FILES)
         if form.is_valid():

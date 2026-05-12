@@ -28,6 +28,8 @@ urlpatterns = [
 
     path('update-bookclub/<str:pk>/', views.updateBookClub, name='update-BookClub'),
 
+    # path('')
+
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
 

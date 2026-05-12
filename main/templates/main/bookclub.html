@@ -5,10 +5,45 @@
     <div>
         <h1>Book Club</h1>
     </div>
+
     <div>
         <h1>{{ bookclub.name }}</h1>
         <p>{{ bookclub.description }}</p>
         <h3>Hosted by: {{ bookclub.host }}</h3>
+    </div>
+
+    <div>
+        <strong>Currently reading {{ bookclub.current_book.title }}</strong>
+        <small>{{ bookclub.current_book.author }}</small>
+    </div>
+
+    <div>Hosted by <strong>{{ bookclub.host }}</strong></div>
+
+    <hr>
+
+    <h3>{{ bookclub.members.count }} members</h3>
+
+    <div class="bookclub-chat">
+        <div class="chat-messages">
+            {% if chats %}
+                {% for chat in chats %}
+                    <div class="chat-message">
+                        <div class="chat-message-header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }}</div>
+                        <div class="chat-message-body">{{ chat.content }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h3>No message yet. Start the conversation!</h3>
+            {% endif %}
+        </div>
+
+        <div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <input type="text" name="content" placeholder="Type your message about the book here" required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
     </div>
 </div>
 

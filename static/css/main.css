@@ -1,4 +1,16 @@
+:root {
 
-body{}
+}
 
-a{}
+body {
+    background-color: red;
+    font-size: 16px;
+}
+
+a {
+    color: red;
+}
+
+h1 {
+    color: chocolate;
+}
