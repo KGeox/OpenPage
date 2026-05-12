@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="nothing much this time. Just filling my database">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login_register.html" afterDir="false" />
+    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="upgrading html pages and correcting errors">
+      <change afterPath="$PROJECT_DIR$/templates/activity_component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/feed_component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/topics_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main/bookclub.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/bookclub.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,18 +37,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "KGeox"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KGeox&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/KGeox/OpenPage.git",
-    "accountId": "70dce54d-13a8-4046-9b21-d8b3afbd1118"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KGeox/OpenPage.git&quot;,
+    &quot;accountId&quot;: &quot;70dce54d-13a8-4046-9b21-d8b3afbd1118&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/main/templates/main/post.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
@@ -76,7 +77,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -122,6 +123,33 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="OpenPage" type="Python.DjangoServer" factoryName="Django server">
+      <module name="OpenPage" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="OpenPage.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.13 (OpenPage)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8002" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -139,7 +167,9 @@
       <option name="presentableId" value="Default" />
       <updated>1777107198828</updated>
       <workItem from="1777107199968" duration="15077000" />
-      <workItem from="1777283119703" duration="11565000" />
+      <workItem from="1777283119703" duration="14694000" />
+      <workItem from="1778155480416" duration="11538000" />
+      <workItem from="1778240284596" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="added basic html pages for url usage, improved the views, added functionalities to the admin panel, adjusting models and created forms">
       <option name="closed" value="true" />
@@ -157,7 +187,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777285558592</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="upgrading html pages and correcting errors">
+      <option name="closed" value="true" />
+      <created>1777299256636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777299256636</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +204,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added basic html pages for url usage, improved the views, added functionalities to the admin panel, adjusting models and created forms" />
     <MESSAGE value="nothing much this time. Just filling my database" />
-    <option name="LAST_COMMIT_MESSAGE" value="nothing much this time. Just filling my database" />
+    <MESSAGE value="upgrading html pages and correcting errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrading html pages and correcting errors" />
   </component>
 </project>

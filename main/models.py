@@ -14,19 +14,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-class Post(models.Model):
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
-    content = models.TextField(max_length=2000)
-    image = models.ImageField(default='default.jpg', upload_to='Images/posts')
-    reads = models.IntegerField(default=0)
-    likes = models.IntegerField(default=0)
-    dislikes = models.IntegerField(default=0)
-    date_posted = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title + " by " + self.author.user.username
-
 class Book(models.Model):
     GENRE_CHOICES = [
         ('fiction', 'Fiction'),
@@ -53,6 +40,22 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title + " by " + self.author
+
+class Post(models.Model):
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    Book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True, blank=True)
+    content = models.TextField(max_length=2000)
+    image = models.ImageField(default='default.jpg', upload_to='Images/posts')
+    reads = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title + " by " + self.author.user.username
+
+
 
 class Comment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)

@@ -18,13 +18,20 @@ urlpatterns = [
 
     path('create-post', views.createPost, name='create-Post'),
 
-    path('update-post', views.updatePost, name='update-Post'),
+    path('update-post/<str:pk>/', views.updatePost, name='update-Post'),
 
-    path('delete-post', views.deletePost, name='delete-Post'),
+    path('delete-post/<str:pk>/', views.deletePost, name='delete-Post'),
 
     # path('update-bookclub', views.updateBookClub, name='update-BookClub'),
 
-    path('delete-bookclub', views.deleteBookClub, name='delete-BookClub'),
+    path('delete-bookclub/<str:pk>/', views.deleteBookClub, name='delete-BookClub'),
+
+    path('update-bookclub/<str:pk>/', views.updateBookClub, name='update-BookClub'),
+
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
+
+    path('register/', views.registerPage, name='register'),
 
     path('about',views.about,name='about'),
 
