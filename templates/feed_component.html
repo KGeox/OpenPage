@@ -2,11 +2,20 @@
             <a href="{% url 'create-Post' %}">Create Post</a>
             {% for post in posts %}
             <div>
-                <a href="{% url 'delete-Post' post.id %}">delete post</a>
-                <a  href="{% url 'update-Post' post.id %}">update post</a>
-                <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
-                <p>{{ post.content }}</p>
-                <small>by {{ post.author }} on {{ post.date_posted }}</small>
+                <div class="post-control">
+                    {% if request.user == post.author.user %}
+                        <a href="{% url 'delete-Post' post.id %}">delete post</a>
+                        <a  href="{% url 'update-Post' post.id %}">update post</a>
+                    {% endif %}
+                </div>
+                <div class="post-view">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% endif %}
+                    <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
+                    <p>{{ post.content }}</p>
+                    <small>by {{ post.author }} on {{ post.date_posted }}</small>
+                </div>
             </div>
             {% endfor %}
             <hr>

@@ -1,16 +1,19 @@
-:root {
 
+:root {
+    --bg: rgb(252, 232, 179)
 }
 
 body {
-    background-color: red;
-    font-size: 16px;
+    background-color: var(--bg);
 }
 
 a {
-    color: red;
+    color: cadetblue;
+
 }
 
-h1 {
-    color: chocolate;
+a:hover {
+    color: burlywood;
 }
+
+hr{}
