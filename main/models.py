@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_image = models.ImageField(default='default.jpg', upload_to='Images/profile_pics')
+    profile_image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField()
     streak = models.IntegerField(default=0)
 
@@ -33,7 +33,7 @@ class Book(models.Model):
     ]
     author = models.CharField(max_length=200)
     title = models.CharField(max_length=500)
-    image = models.ImageField(default='default.jpg', upload_to='Images/books')
+    image = models.ImageField(default='default.jpg', upload_to='books')
     genre = models.TextField(max_length= 100, choices=GENRE_CHOICES, default="other")
     summary = models.TextField(max_length=5000, null=True)
     valid = models.BooleanField(default=False)
@@ -46,7 +46,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     Book = models.ForeignKey(Book, on_delete=models.CASCADE, null=True, blank=True)
     content = models.TextField(max_length=2000)
-    image = models.ImageField(default='default.jpg', upload_to='Images/posts')
+    image = models.ImageField(default='default.jpg', upload_to='posts')
     reads = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)

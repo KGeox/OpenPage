@@ -1,16 +1,17 @@
 <nav class="navbar">
     <div class="logo"><a href="{% url 'home' %}">OpenPage</a></div>
-    <div>
-        <form method="get" action="{% url 'home' %}">
-            <input type="text" name="q" placeholder="Search...">
+    <div class="search_bar">
+        <form class="search_form" method="get" action="{% url 'home' %}">
+            <input type="text" name="q" placeholder="Search..." class="search_input">
         </form>
     </div>
-    <div>
+
+    <div class="nav_links">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'profile' 1 %}">Profile</a>
     </div>
-    <div>
+
+    <div class="nav_user">
         {% if request.user.is_authenticated %}
             <p>Hello {{ request.user }}</p>
             <ul><a href="{% url 'profile' user.id %}">view profile</a> </ul>

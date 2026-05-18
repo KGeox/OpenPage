@@ -1,19 +1,132 @@
 
 :root {
-    --bg: rgb(252, 232, 179)
+    --bg: rgb(252, 232, 179);
+    --color-1: #775b39;
+    --color-2: #a37d4e;
+    --color-3: #ce9f65;
+    --color-4: #e8c07a;
+    --color-5: #f9dfa4;
 }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--color-5);
+}
+
+.feed_component{
+    align-items: center;
 }
 
 a {
     color: cadetblue;
-
+    border-radius: 10px;
+    padding: 3px 2px;
+    margin: 4px;
+    background-color: black;
 }
 
 a:hover {
     color: burlywood;
+
 }
 
 hr{}
+
+.navbar{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    padding: 10px;
+}
+
+.nav_links{}
+
+.nav_user{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+.logo{}
+
+.search_bar{
+    position: relative;
+    background: linear-gradient(135deg, blue 0%, red 100%) ;
+    border-radius: 1000px;
+    padding: 10px;
+    display: grid;
+    place-content: center;
+    max-width: 300px;
+    margin: 0 10px;
+    align-items: center;
+}
+
+.search_form {
+    position: relative;
+    border-radius: 50px;
+    width: 100%;
+    background: linear-gradient(135deg, wheat 0%, darkblue 100% );
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.search_input{
+    padding: 10px;
+    width: 100%;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: deepskyblue;
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+.home_container{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 0px;
+    margin: 20px;
+}
+
+.post_card_top{
+    top: 0;
+    position: absolute;
+    background-color: var(--color-2);
+    box-shadow: 1px 1px 12px  var(--color-5);
+    transform-origin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.post_card{
+    position: relative;
+    width: 320px;
+    height: 400px;
+    perspective: 2000px;
+    border-radius: 10px;
+
+    border: 2px solid aquamarine;
+    margin: 10px;
+}
+
+.post_card:hover .post_card_top {
+    transition: all 1s;
+    transform: rotateY(-100deg);
+}
+
+.post_control{
+    padding: 10px;
+}
+
+.post_view{}
+
+.post_image{
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    width: 100%;
+    padding: 10px;
+}
