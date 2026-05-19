@@ -4,10 +4,30 @@
 
     <h1>Book</h1>
     <div>
-        <div>
-            <h1>{{ book.title }}</h1>
-            <p>{{ book.summary }}</p>
-            <h3>Author: {{ book.author }}</h3>
+        <div >
+            <img src="{{ book.image.url }}" class="book_image">
+            <div class="book_title">{{ book.title }}</div>
+            <div class="book_summary">{{ book.summary }}</div>
+            <div class="book_author">Author: {{ book.author }}</div>
+        </div>
+        <div class="book_author_card">
+            <button class="mail">✉️</button>
+        </div>
+        <div class="book_author_pic"></div>
+        <div class="book_author_bottom">
+            <div class="book_author_content">
+                <span class="book_author_about">
+                    Bla bla bla for now
+                </span>
+            </div>
+            <div class="book_author_bottom-bottom">
+                <div class="book_author_social-links">
+                    <a>📷</a>
+                    <a>📺</a>
+                    <a>📔</a>
+                </div>
+                <button class="book_author_Follow">Follow author</button>
+            </div>
         </div>
     </div>
 

@@ -10,6 +10,7 @@
 
 body {
     background-color: var(--color-5);
+
 }
 
 .feed_component{
@@ -90,15 +91,58 @@ hr{}
 .post_card_top{
     top: 0;
     position: absolute;
-    background-color: var(--color-2);
+    background-color: var(--color-3);
     box-shadow: 1px 1px 12px  var(--color-5);
     transform-origin: 0;
     width: 100%;
     height: 100%;
     cursor: pointer;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     border-radius: 10px;
+    align-items: center;
+
+}
+
+.post_card_top_image_box{
+    width: 90%;
+    height: 50%;
+    border-radius: 10px;
+    margin: auto;
+
+}
+
+.post_card_top_image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: auto;
+
+
+}
+
+.post_card_top_book{
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: var(--color-1);
+    padding: 9px;
+}
+
+.post_card_top_summary{
+    font-weight: 600;
+    color: var(--color-1);
+    padding: 7px;
+}
+
+.post_card_top_author{
+    color: gray;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+.post_card_top_name{
+    font-weight: 600;
 }
 
 .post_card{
@@ -108,7 +152,7 @@ hr{}
     perspective: 2000px;
     border-radius: 10px;
 
-    border: 2px solid aquamarine;
+    border: 2px solid black;
     margin: 10px;
 }
 

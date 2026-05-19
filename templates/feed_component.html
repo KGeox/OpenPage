@@ -2,6 +2,7 @@
             <a href="{% url 'create-Post' %}">Create Post</a>
             {% for post in posts %}
             <div class="post_card">
+            
                 <div class="post_control">
                     {% if request.user == post.author.user %}
                         <a href="{% url 'delete-Post' post.id %}">delete post</a>
@@ -10,6 +11,7 @@
                 </div>
                 <div class="post_view">
                     {% if post.image %}
+
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_image">
                     {% endif %}
                     <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
@@ -17,12 +19,16 @@
                     <small>by {{ post.author }} on {{ post.date_posted }}</small>
                 </div>
                 <div class="post_card_top">
-                    <div class="post_card_top_image">
+                    <div class="post_card_top_image_box">
                         {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}" >
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_card_top_image">
                         {% endif %}
                     </div>
-                    <div></div>
+                    <div class="post_card_top_book">{{ post.Book|slice:":5" }}</div>
+                    <div class="post_card_top_summary">
+                        {{ post.content|truncatechars:210 }}
+                        <div class="post_card_top_author">By <span class="post_card_top_name">{{ post.author|slice:":2" }}</span> {{ post.date_posted|timesince }}</div>
+                    </div>
                 </div>
             </div>
             <hr>
