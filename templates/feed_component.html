@@ -11,17 +11,16 @@
                 </div>
                 <div class="post_view">
                     {% if post.image %}
-
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_image">
                     {% endif %}
                     <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.content }}</p>
-                    <small>by {{ post.author }} on {{ post.date_posted }}</small>
+                    <small>by {{ post.author }} on {{ post.date_posted }} ago</small>
                 </div>
                 <div class="post_card_top">
                     <div class="post_card_top_image_box">
                         {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_card_top_image">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_card_top_image">
                         {% endif %}
                     </div>
                     <div class="post_card_top_book">{{ post.Book|slice:":5" }}</div>
