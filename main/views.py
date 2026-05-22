@@ -96,25 +96,9 @@ def post(request, pk):
             )
             return redirect('post', pk=post.id)
 
-        context = {'post':post, 'comments': comments}
-        return render(request, "main/post.html",context)
+    context = {'post':post, 'comments': comments}
+    return render(request, "main/post.html",context)
 
-##########################################33
-    ##  You(Me) stopped here to day
-###########################################
-
-
-    if request.method == 'POST':
-        if not request.user.is_authenticated:
-            return redirect('login')
-        comment = Comment.objects.create(
-            author=request.user.profile,
-            post=post,
-            content=request.POST.get('content'),
-        )
-        return redirect('post', pk=post.id)
-    context = {'post': post, 'comments': comments}
-    return render(request, "main/post.html", context)
 
 
 def createPost(request):
@@ -163,7 +147,8 @@ def deletePost(request, pk):
 
 def book(request, pk):
     book = Book.objects.get(id=pk)
-    context = {'book': book}
+    posts = Post.objects.filter(Book=book)
+    context = {'book': book, 'posts':posts}
     return render(request, 'main/book.html', context)
 
 
@@ -180,7 +165,6 @@ def createBook(request):
 
 
 def bookclub(request, pk):
-    # TODO: Add chats in the club
     bookclub = BookClub.objects.get(id=pk)
     chats = Chat_BC.objects.filter(bookClub=bookclub).order_by('date_written')
     if request.method == 'POST':
@@ -247,7 +231,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.info(request, 'Username or password is incorrect')
+            messages.error(request, 'Username or password is incorrect')
 
     context = {'page': page}
     return render(request, 'login_register.html', context)

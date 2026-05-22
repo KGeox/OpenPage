@@ -77,8 +77,8 @@ class Post(models.Model):
         return self.title + " by " + self.author.user.username
 
 class PostRead(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post reads')
-    reader = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reads done')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_reads')
+    reader = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reads_done')
     read_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
