@@ -20,20 +20,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-    def update_streak(self):
-        today = timezone.now().date()
-        if self.last_active is None:
-            self.streak = 1
-            self.last_active = today
-        elif self.last_active == today:
-            pass
-        elif self.last_active == today - datetime.timedelta(days=1):
-            self.streak += 1
-            self.last_active = today
-        else:
-            self.streak = 1
-            self.last_active = today
-        self.save()
+
 
 class Book(models.Model):
     GENRE_CHOICES = [
@@ -76,16 +63,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title + " by " + self.author.user.username
 
-class PostRead(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='post_reads')
-    reader = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reads_done')
-    read_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        unique_together = ('post', 'reader')
-
-    def __str__(self):
-        return self.reader + "read" + self.post
 
 class Comment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)

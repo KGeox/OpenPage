@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import Book, BookClub,  Post, Profile, Comment, PostRead, Chat_BC
+from .models import Book, BookClub,  Post, Profile, Comment, Chat_BC
 from .forms import *
 from django.db.models import Q
 
@@ -50,10 +50,9 @@ def profile(request, pk):
     profile = Profile.objects.get(id=pk)
     posts = profile.post_set.all()
     post_comments = profile.comment_set.all()
-    posts_reads = sum(p.reads for p in posts)
     books = Book.objects.filter(post__author=profile, valid=True)
     bookclubs = BookClub.objects.filter(members=profile)
-    context = {'profile': profile, 'posts': posts, 'post_comments': post_comments, 'books': books, 'bookclubs': bookclubs, 'posts_reads': posts_reads}
+    context = {'profile': profile, 'posts': posts, 'post_comments': post_comments, 'books': books, 'bookclubs': bookclubs}
     return render(request, "profile.html", context)
 
 def editProfile(request):
@@ -70,32 +69,6 @@ def editProfile(request):
 def post(request, pk):
     post = Post.objects.get(id=pk)
     comments = Comment.objects.filter(post=pk)
-
-    if request.user.is_authenticated:
-        reader_profile = request.user.profile
-        read, created = PostRead.objects.get_or_create(post=post, reader=reader_profile)
-        if created:
-            post.reads += 1
-            post.save(update_fields=['reads'])
-            reader_profile.total_reads +=1
-            reader_profile.update_streak()
-        else:
-            session_key = "read_post_" + str(pk)
-            if not request.session.get(session_key):
-                post.reads += 1
-                post.save(update_fields=['reads'])
-                request.session[session_key] = True
-
-        if request.method == 'POST':
-            if not request.user.is_authenticated:
-                return redirect('login')
-            Comment.objects.create(
-                author=request.user.profile,
-                post=post,
-                content=request.POST.get('content'),
-            )
-            return redirect('post', pk=post.id)
-
     context = {'post':post, 'comments': comments}
     return render(request, "main/post.html",context)
 

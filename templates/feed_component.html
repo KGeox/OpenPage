@@ -10,9 +10,11 @@
                     {% endif %}
                 </div>
                 <div class="post_view">
+                    <div class="post_view_imagebox">
                     {% if post.image %}
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_image">
                     {% endif %}
+                    </div>
                     <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
                     <p>{{ post.content }}</p>
                     <small>by {{ post.author }} on {{ post.date_posted }} ago</small>
