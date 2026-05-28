@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="recreating the styles in a more personal way">
+    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="fixing errors">
+      <change afterPath="$PROJECT_DIR$/main/templates/main/create_book_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/feed_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/feed_component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/topics_component.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/topics_component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +154,11 @@
       <workItem from="1779351831634" duration="6709000" />
       <workItem from="1779361328483" duration="12229000" />
       <workItem from="1779446520580" duration="17589000" />
-      <workItem from="1779547237525" duration="4274000" />
+      <workItem from="1779547237525" duration="5674000" />
+      <workItem from="1779788001582" duration="16381000" />
+      <workItem from="1779906786543" duration="7000" />
+      <workItem from="1779959695761" duration="28000" />
+      <workItem from="1779960010404" duration="12429000" />
     </task>
     <task id="LOCAL-00001" summary="added basic html pages for url usage, improved the views, added functionalities to the admin panel, adjusting models and created forms">
       <option name="closed" value="true" />
@@ -233,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779462945567</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixing errors">
+      <option name="closed" value="true" />
+      <created>1779556071039</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1779556071040</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +263,7 @@
     <MESSAGE value="adding more css on navbar, on cards and globally and improving images management in database" />
     <MESSAGE value="adding styles, adding read and streak func" />
     <MESSAGE value="recreating the styles in a more personal way" />
-    <option name="LAST_COMMIT_MESSAGE" value="recreating the styles in a more personal way" />
+    <MESSAGE value="fixing errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing errors" />
   </component>
 </project>

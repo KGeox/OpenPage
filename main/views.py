@@ -134,7 +134,7 @@ def createBook(request):
             book.save()
             return redirect('home')
     context = {'form': form}
-    return render(request,'main/post_form.html', context)
+    return render(request,'main/create_book_form.html', context)
 
 
 def bookclub(request, pk):

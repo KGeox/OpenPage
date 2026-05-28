@@ -1,11 +1,17 @@
+
     <div class="topics_component">
         <div class="left_sidebar">
             <a href="{% url 'create-Book' %}">Add a Book</a>
             {% for book in books %}
             <div class="left_sidebar_item">
-                <a href="{% url 'book' book.id %}"><h2>{{ book.title }}</h2></a>
-                <p>{{ book.author }}</p>
-                <p>{{ book.summary }}</p>
+                <div>
+                    <h2><a href="{% url 'book' book.id %}">{{ book.title }}</a></h2>
+                    <p>{{ book.author }}</p>
+                    <p>{{ book.summary }}</p>
+                </div>
+                <div>
+                    <img style="width: 100px; height: 130px; padding: 5px; border-radius: 20%;" src="{{ book.image.url }}">
+                </div>
             </div>
             {% endfor %}
             <hr>
@@ -15,9 +21,9 @@
             <a href="{% url 'create-BookClub' %}">Create a BookClub</a>
             {% for bookclub in bookclubs %}
             <div class="left_sidebar_item">
-                <a href="{% url 'bookclub' bookclub.id %}"><h2>{{ bookclub.name }}</h2></a>
-                <p>{{ bookclub.description }}</p>
-                <p>{{ bookclub.host }}</p>
+                <h2><a href="{% url 'bookclub' bookclub.id %}">{{ bookclub.name }}</a></h2>
+                <p> hosted by: {{ bookclub.host }}</p>
+                <p>"{{ bookclub.description }}"</p>
                 <div class="bookclub_control_links">
                     <a href="{% url 'delete-BookClub' bookclub.id %}">delete BookClub</a>
                     <a  href="{% url 'update-BookClub' bookclub.id %}">update BookClub</a>
@@ -27,3 +33,5 @@
             <hr>
         </div>
     </div>
+
+

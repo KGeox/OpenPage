@@ -2,12 +2,21 @@
 
 {% block content %}
     <h1>Profile</h1>
-<div>
+<div class="profile_infos">
+    <div class="profile_imagebox">
+        <img src="{{ profile.profile_image.url }}" class="profile_image">
+    </div>
     <div>
-        <h1>Name: {{ profile.user.username }}</h1>
+        <h1>{{ profile.user.username.upper }}</h1>
         <p>{{ profile.bio }}</p>
     </div>
-</div>    
+</div>
+
+<div>
+    <h2>Your posts</h2>
+    {% include 'feed_component.html' %}
+
+</div>
     
 
 {%  endblock %}

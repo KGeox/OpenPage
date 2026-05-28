@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <div>
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        <div class="book_design">
+            By {{ form.author }}
+            title {{ form.title }}
+            genre {{ form.genre }}
+            image {{ form.image }}
+            summary {{ form.summary }}
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+
+{% endblock %}
