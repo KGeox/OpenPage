@@ -191,24 +191,29 @@ a{
 }
 
 .book_design{
+    width: 520px;
+    height: 760px;
     display: grid;
-    gap: 10px;
+    /*gap: 10px;*/
     background-color: #b8924e;
     color: #775b39;
     font-size: 20px;
-    border-radius: 40px;
-    margin: 40px;
+    border-radius: 4px;
     padding: 20px;
 }
 
 .form_info{
+    background: none;
+    border: none;
     border-radius: 40px;
-    padding: 8px 30px 8px 12px;
+    /*padding: 8px 30px 8px 12px;*/
     font-family: ui-monospace;
+    font-size: 30px;
 }
 
 .form_select{
     appearance: none;
+    background: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     border-radius: 20px;
@@ -225,7 +230,41 @@ a{
     font-style: italic;
 }
 
-
+.page{
+    width: 600px;
+    height: 800px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+.page1{
+    width: 590px;
+    height: 800px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+.page2{
+    width: 580px;
+    height: 800px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+.page3{
+    width: 570px;
+    height: 800px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+.page4{
+    width: 560px;
+    height: 800px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 4px;
+}
 
 @media (max-width: 900px) {
     .home_container{
