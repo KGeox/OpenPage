@@ -12,7 +12,7 @@
                genre {{ form.genre }}
 
                image {{ form.image }}
-               <img id="image_preview" src="#" alt="Book image preview" style="display: none; max-width: 200px; margin-top: 10px;" />
+               <img id="image_preview" src="#" alt="Book image preview" style=" max-width: 200px; margin-top: 10px;" />
                summary {{ form.summary }}
 
                <input type="submit" value="Submit">
@@ -23,7 +23,7 @@
     </div>
 
     <script>
-        const imageInput=document.getElementById('image_ID');
+        const imageInput=document.getElementById('id_image');
         const imagePreview = document.getElementById('image_preview');
 
         if (imageInput) {

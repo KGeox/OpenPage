@@ -34,7 +34,6 @@ img{
 .feed_component{
     background: var(--main);
     border-radius: 10px;
-    border: 1px solid red;
     padding: 10px;
     margin: 10px;
 }
@@ -42,7 +41,6 @@ img{
 .activity_component{
     background: var(--side);
     border-radius: 10px;
-    border: 1px solid green;
     padding: 10px;
     margin: 10px;
 }
@@ -51,7 +49,6 @@ img{
     display: flex;
     background: var(--nav);
     border-radius: 20px;
-    border: 1px solid orange;
     padding: 10px 20px;
     align-items: center;
     position: sticky;
@@ -65,7 +62,6 @@ img{
 
 .search_bar{
     border-radius: 100px;
-    border: 1px dotted blue;
     padding: 5px;
 }
 
@@ -125,7 +121,6 @@ img{
     height: 100%;
     border-radius: 10px;
     margin: 5px auto;
-    border: 3px solid red;
 }
 
 
@@ -234,35 +229,30 @@ a{
     width: 600px;
     height: 800px;
     background-color: whitesmoke;
-    border: 2px solid black;
     border-radius: 4px;
 }
 .page1{
     width: 590px;
     height: 800px;
     background-color: whitesmoke;
-    border: 2px solid black;
     border-radius: 4px;
 }
 .page2{
     width: 580px;
     height: 800px;
     background-color: whitesmoke;
-    border: 2px solid black;
     border-radius: 4px;
 }
 .page3{
     width: 570px;
     height: 800px;
     background-color: whitesmoke;
-    border: 2px solid black;
     border-radius: 4px;
 }
 .page4{
     width: 560px;
     height: 800px;
-    background-color: whitesmoke;
-    border: 2px solid black;
+    background-color: whitesmoke
     border-radius: 4px;
 }
 
