@@ -13,12 +13,10 @@ body{
 }
 
 img{
-
     height: auto;
 }
 
 .home_container{
-    border: 2px solid black;
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
 }
@@ -26,7 +24,6 @@ img{
 .topics_component{
     background: var(--side);
     border-radius: 10px;
-    border: 1px solid blue;
     padding: 10px;
     margin: 10px;
 }
@@ -85,7 +82,6 @@ img{
 .post_card{
     background: rgba(255, 255, 255,0.5);
     border-radius: 20px;
-    border: 2px solid var(--border);
     margin: 10px;
     width: var(--card-wid);
     height: var(--card-high);
@@ -133,10 +129,10 @@ button{
 
 .left_sidebar{
     border: 3px solid #3d2b1a ;
+    margin: 10px;
 }
 
 .left_sidebar_item{
-    border: 3px solid #fdf3e3;
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
@@ -252,7 +248,7 @@ a{
 .page4{
     width: 560px;
     height: 800px;
-    background-color: whitesmoke
+    background-color: whitesmoke;
     border-radius: 4px;
 }
 
