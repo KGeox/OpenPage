@@ -15,6 +15,7 @@ urlpatterns = [
     # path('update-bookclub', views.updateBookClub, name='update-BookClub'),
     path('delete-bookclub/<str:pk>/', views.deleteBookClub, name='delete-BookClub'),
     path('update-bookclub/<str:pk>/', views.updateBookClub, name='update-BookClub'),
+    path('delete-comment/<str:pk>/', views.deleteComment, name="delete-comment"),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
     path('register/', views.registerPage, name='register'),

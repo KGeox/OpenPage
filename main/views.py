@@ -194,6 +194,18 @@ def deleteBookClub(request, pk):
     pass
 
 
+def deleteComment(request,pk):
+    comment = Comment.objects.get(id=pk)
+
+    if request.user != comment.author.user:
+        return HttpResponse('You are not allowed here!')
+
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('post', pk=comment.post.id)
+    return render(request, 'delete.html', {'obj': comment})
+
+
 def loginPage(request):
     page = 'login'
     if request.method == 'POST':
