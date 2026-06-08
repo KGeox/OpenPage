@@ -12,8 +12,6 @@ from .forms import *
 from django.db.models import Q
 
 
-# Create your views here.
-
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
     genre = request.GET.get('genre', '')
@@ -69,9 +67,18 @@ def editProfile(request):
 def post(request, pk):
     post = Post.objects.get(id=pk)
     comments = Comment.objects.filter(post=pk)
+
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            return redirect('login')
+        comment = Comment.objects.create(
+            author= request.user.profile,
+            post = post,
+            content= request.POST.get('content')
+        )
+        return redirect('post', pk=post.id)
     context = {'post':post, 'comments': comments}
     return render(request, "main/post.html",context)
-
 
 
 def createPost(request):
@@ -140,6 +147,7 @@ def createBook(request):
 def bookclub(request, pk):
     bookclub = BookClub.objects.get(id=pk)
     chats = Chat_BC.objects.filter(bookClub=bookclub).order_by('date_written')
+    profile = Profile.objects.get(id=pk)
     if request.method == 'POST':
         content = request.POST.get('content')
         if content:
@@ -149,7 +157,7 @@ def bookclub(request, pk):
                 content = content,
             )
         return redirect('bookclub', pk=pk)
-    context = {'bookclub': bookclub, 'chats':chats}
+    context = {'bookclub': bookclub, 'chats':chats, 'profile':profile}
     return render(request,'main/bookclub.html', context)
 
 
@@ -189,7 +197,7 @@ def deleteBookClub(request, pk):
 def loginPage(request):
     page = 'login'
     if request.method == 'POST':
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         password = request.POST.get('password')
 
         try:
@@ -218,6 +226,7 @@ def registerPage(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
+            Profile.objects.create(user=user)
             login(request, user)
             return redirect('home')
         else:

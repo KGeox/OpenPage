@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os.path
 #geox
 #geox23?&
+#geox2
+#geox23?&2
 
 from pathlib import Path
 

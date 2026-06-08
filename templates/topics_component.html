@@ -1,7 +1,7 @@
 
     <div class="topics_component">
         <div class="left_sidebar">
-            <a href="{% url 'create-Book' %}">Add a Book</a>
+        <div style="display: flex; justify-content: center; align-items: center;"><a href="{% url 'create-Book' %}">Add a Book</a></div>
             {% for book in books %}
             <div class="left_sidebar_item">
                 <div>
@@ -18,14 +18,15 @@
         </div>
 
         <div class="left_sidebar">
-            <a href="{% url 'create-BookClub' %}">Create a BookClub</a>
+            <div style="display: flex; justify-content: center; align-items: center;"><a " href="{% url 'create-BookClub' %}">Create a BookClub</a></div>
+
             {% for bookclub in bookclubs %}
             <div class="left_sidebar_item">
                 <h2><a href="{% url 'bookclub' bookclub.id %}">{{ bookclub.name }}</a></h2>
                 <p> hosted by: {{ bookclub.host }}</p>
                 <p>"{{ bookclub.description }}"</p>
                 <div class="bookclub_control_links">
-                    <a href="{% url 'delete-BookClub' bookclub.id %}">delete BookClub</a>
+                    <a  href="{% url 'delete-BookClub' bookclub.id %}">delete BookClub</a>
                     <a  href="{% url 'update-BookClub' bookclub.id %}">update BookClub</a>
                 </div>
             </div>

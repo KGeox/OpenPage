@@ -1,11 +1,15 @@
 :root{
-    --nav: #ce9f65;
+    --nav: #efc898;
     --main: #f9dfa4;
     --side: #e8c07a;
-    --border: black;
-    --card-top: #a37d4e;
+    --int_bg: rgb(249 223 164 / 0.20);
+    --border: gold;
+    --Bborder: #f9dfa4;
+    --card-top: #eaab5d;
+    --card_bot: rgb(246 214 174 / 0.5);
     --card-wid: 320px;
-    --card-high: 400px;
+    --card-high: 320px;
+    --link_col: gold;
 }
 
 body{
@@ -18,34 +22,37 @@ img{
 
 .home_container{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1.2fr 3fr 1.2fr;
 }
 
 .topics_component{
-    background: var(--side);
+    background: var(--int_bg);
     border-radius: 10px;
+    border: 5px solid var(--Bborder);
     padding: 10px;
     margin: 10px;
 }
 
 .feed_component{
-    background: var(--main);
+    background: var(--int_bg);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
 
 .activity_component{
-    background: var(--side);
+    background: var(--int_bg);
+    border: 5px solid var(--Bborder);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
+
 .navbar{
     top: 10px;
     display: flex;
     background: var(--nav);
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 10px 20px;
     align-items: center;
     position: sticky;
@@ -63,8 +70,13 @@ img{
 }
 
 .search_form{
-    border-radius: 50px;
 
+}
+
+.search_input{
+    border-radius: 20px;
+    padding: 4px;
+    background-color: rgb(255 253 242 / 0.9);
 }
 
 .post_card_top{
@@ -80,7 +92,7 @@ img{
 }
 
 .post_card{
-    background: rgba(255, 255, 255,0.5);
+    background: var(--card_bot);
     border-radius: 20px;
     margin: 10px;
     width: var(--card-wid);
@@ -107,11 +119,13 @@ img{
     transition: all 1s;
     transform: rotateY(-100deg);
 }
+
 .post_view_imagebox{
     width: 90%;
     height: 180px;
     margin-left: 5%;
 }
+
 .post_image{
     width: 100%;
     height: 100%;
@@ -119,6 +133,15 @@ img{
     margin: 5px auto;
 }
 
+.post_control{
+    padding: 10px;
+}
+.post_content{
+    width: 300px;
+    height: 170px;
+    margin-left: 10px;
+    overflow-y: auto;
+}
 
 button{
     border: none;
@@ -128,8 +151,8 @@ button{
 }
 
 .left_sidebar{
-    border: 3px solid #3d2b1a ;
-    margin: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .left_sidebar_item{
@@ -171,12 +194,13 @@ button{
 
 .profile_image{
     border-radius: 100%;
+    margin-top: 20px;
 }
 
 a{
-    color: #fdf3e3;
+    color: var(--link_col);
     border-radius: 20px;
-    background-color: #b8924e;
+    box-shadow: 0px 0px 4px 4px rgb(244 200 122 / 0.86);
     padding: 4px;
     margin: 4px;
 }
@@ -252,9 +276,38 @@ a{
     border-radius: 4px;
 }
 
+.message_box{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+
+.p_message{
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.p_message.you{
+    background-color: #3d2b1a;
+    margin-left: auto;
+}
+
+.p_message.not_you{
+    background-color: #edaf45;
+    align-self: flex-start;
+}
+
 @media (max-width: 900px) {
     .home_container{
         grid-template-columns: 1fr;
+    }
+
+    .profile_infos{
+        display: block;
+        justify-content: center;
+        align-items: center;
     }
 
 }

@@ -2,9 +2,6 @@
 
 {% block content %}
 <div>
-    <div>
-        <h1>Book Club</h1>
-    </div>
 
     <div>
         <h1>{{ bookclub.name }}</h1>
@@ -26,12 +23,29 @@
     <div class="bookclub-chat">
         <div class="chat-messages">
             {% if chats %}
-                {% for chat in chats %}
-                    <div class="chat-message">
-                        <div class="chat-message-header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }}</div>
-                        <div class="chat-message-body">{{ chat.content }}</div>
-                    </div>
-                {% endfor %}
+
+                <div class="messages_box">
+                    {% for chat in chats %}
+
+                        {% if request.user == chat.author.user %}
+                            <div class="p_message you">
+                                <div class="chat_message_header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }}</div>
+                                <div class="chat_message_body">{{ chat.content }}</div>
+                            </div>
+
+                        {% else %}
+                            <div class="p_message not_you">
+                                <div class="chat_message_header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }}</div>
+                                <div class="chat_message_body">{{ chat.content }}</div>
+                            </div>
+                        {% endif %}
+
+
+
+                    {% endfor %}
+                </div>
+                <hr>
+
             {% else %}
                 <h3>No message yet. Start the conversation!</h3>
             {% endif %}

@@ -1,23 +1,25 @@
         <div class="feed_component">
-            <a href="{% url 'create-Post' %}">Create Post</a>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <a href="{% url 'create-Post' %}">Create Post</a>
+            </div>
             {% for post in posts %}
             <div class="post_card">
             
                 <div class="post_control">
                     {% if request.user == post.author.user %}
-                        <a href="{% url 'delete-Post' post.id %}">delete post</a>
+                        <a  href="{% url 'delete-Post' post.id %}">delete post</a>
                         <a  href="{% url 'update-Post' post.id %}">update post</a>
                     {% endif %}
                 </div>
                 <div class="post_view">
-                    <div class="post_view_imagebox">
-                        {% if post.image %}
-                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_image">
-                        {% endif %}
-                    </div>
-                    <h2>{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
-                    <p>{{ post.content|truncatechars:210 }}</p>
-                    <small>by {{ post.author }} on {{ post.date_posted }} ago</small>
+{#                    <div class="post_view_imagebox">#}
+{#                        {% if post.image %}#}
+{#                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_image">#}
+{#                        {% endif %}#}
+{#                    </div>#}
+                    <h2 style="margin-left: 10px;">{{ post.id }} -- <a href="{% url 'post' post.id %}">{{ post.title }}</a></h2>
+                    <p class="post_content">{{ post.content }}</p>
+                    <small style="margin-left:10px; ">by {{ post.author }} on {{ post.date_posted }} ago</small>
                 </div>
                 <div class="post_card_top">
                     <div class="post_card_top_image_box">
@@ -25,9 +27,9 @@
                             <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post_card_top_image">
                         {% endif %}
                     </div>
-                    <div class="post_card_top_book">{{ post.Book|slice:":5" }}</div>
-                    <div class="post_card_top_summary">
-                        {{ post.content|truncatechars:210 }}
+                    <div style="margin-left:10px;" class="post_card_top_book">{{ post.Book|slice:":5" }}</div>
+                    <div style="margin-left:10px;" class="post_card_top_summary">
+{#                        {{ post.content|truncatechars:210 }}#}
                         <div class="post_card_top_author">By <span class="post_card_top_name">{{ post.author|slice:":2" }}</span> {{ post.date_posted|timesince }}</div>
                     </div>
                 </div>

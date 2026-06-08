@@ -14,7 +14,7 @@
     <div class="nav_user">
         {% if request.user.is_authenticated %}
             <p>Hello {{ request.user }}</p>
-            <a href="{% url 'profile' user.id %}">view profile</a>
+            <a href="{% url 'profile' request.user.id %}">view profile</a>
             <a href="{% url 'logout' %}">logout</a>
         {% else %}
             <a href="{% url 'login' %}">login</a>

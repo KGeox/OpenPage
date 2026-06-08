@@ -19,7 +19,7 @@ class ProfileForm(ModelForm):
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'author', 'image']
+        fields = ['title','Book', 'content', 'image']
 
         widgets = {
             'title': forms.TextInput(
