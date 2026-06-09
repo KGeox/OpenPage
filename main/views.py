@@ -53,6 +53,7 @@ def profile(request, pk):
     context = {'profile': profile, 'posts': posts, 'post_comments': post_comments, 'books': books, 'bookclubs': bookclubs}
     return render(request, "profile.html", context)
 
+
 def editProfile(request):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
@@ -63,6 +64,7 @@ def editProfile(request):
             return redirect('profile', pk=profile.id)
     context = {'form':form, 'title':'Edit Profile'}
     return render(request, 'main/post_form.html', context)
+
 
 def post(request, pk):
     post = Post.objects.get(id=pk)
@@ -229,6 +231,7 @@ def loginPage(request):
     context = {'page': page}
     return render(request, 'login_register.html', context)
 
+
 def registerPage(request):
     form = UserCreationForm()
 
@@ -247,9 +250,11 @@ def registerPage(request):
     context = {'form': form}
     return render(request, 'login_register.html', context)
 
+
 def logoutUser(request):
     logout(request)
     return redirect('home')
+
 
 def about(request):
     return render(request, 'about.html')

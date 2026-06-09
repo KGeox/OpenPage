@@ -2,12 +2,14 @@
 
 {% block content %}
     <h1>Profile</h1>
+    
 <div class="profile_infos">
     <div class="profile_imagebox">
         <img src="{{ profile.profile_image.url }}" class="profile_image">
     </div>
     <div>
         <h1>{{ profile.user.username.upper }}</h1>
+        <a href="{% url 'edit-profile' %}">edit profile</a>
         <p>{{ profile.bio }}</p>
     </div>
 </div>

@@ -34,6 +34,11 @@ class PostForm(ModelForm):
                     'placeholder': "content"
                 }
             ),
+            'Book': forms.Select(
+                attrs={
+                    'class': 'form_select',
+                }
+            )
 
 
         }
@@ -71,8 +76,6 @@ class BookForm(ModelForm):
                 }
             )
         }
-
-
 
 
 class BookClubForm(ModelForm):
