@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.messages.storage import session
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Book, BookClub,  Post, Profile, Comment, Chat_BC
@@ -26,6 +26,15 @@ def home(request):
     if genre:
         posts = posts.filter(Book__genre=genre)
 
+    if request.user.is_authenticated:
+        liked_posts = set(
+            PostLike.objects.filter(
+                user=request.user.profile
+            ).values_list('post_id', flat=True)
+        )
+    else:
+        liked_posts =set()
+
     books = Book.objects.filter(valid=True)
     bookclubs = BookClub.objects.all()
     post_comments = Comment.objects.filter(
@@ -40,6 +49,7 @@ def home(request):
                'genre_choices': genre_choices,
                'selected_genre': genre,
                'current_q': q,
+               'liked_posts': liked_posts,
     }
     return render(request, "home.html", context)
 
@@ -126,6 +136,24 @@ def deletePost(request, pk):
 
     return render(request,'main/post_form.html', context)
 
+
+@login_required
+def toggle_like(request, pk):
+    post = get_object_or_404(Post, id=pk)
+
+    like = PostLike.objects.filter(
+        user=request.user.profile,
+        post=post
+    )
+
+    if like.exists():
+        like.delete()
+    else:
+        PostLike.objects.create(
+            user=request.user.profile,
+            post=post
+        )
+    return redirect('home')
 
 def book(request, pk):
     book = Book.objects.get(id=pk)

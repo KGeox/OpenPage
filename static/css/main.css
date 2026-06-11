@@ -1,6 +1,6 @@
 :root{
     --nav: #efc898;
-    --main: #f9dfa4;
+    --main: rgb(225 205 159 / 0.93);
     --side: #e8c07a;
     --int_bg: rgb(249 223 164 / 0.20);
     --border: gold;
@@ -10,6 +10,7 @@
     --card-wid: 320px;
     --card-high: 320px;
     --link_col: gold;
+    --liked: gold;
 }
 
 body{
@@ -301,6 +302,31 @@ a{
 .p_message.not_you{
     background-color: #edaf45;
     align-self: flex-start;
+}
+
+.like_btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: brown;
+    color: white;
+    margin: 4px;
+    width: 40px;
+}
+
+.like_icon{
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.like_btn.active{
+    color: var(--liked);
+    width: 50px;
+}
+
+.like_btn:hover{
+    color: var(--liked);
 }
 
 @media (max-width: 900px) {

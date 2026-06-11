@@ -2,28 +2,35 @@
 
 {% block content %}
 <div>
-    <div>
-        <h1>Post</h1>
-        <div>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.content }}</p>
 
+    <div>
+
+        <div style="border: 3px solid var(--card-top); padding: 5px; border-radius: 20px; background: var(--main)">
+            <h1>{{ post.title }}</h1>
+            <p style=" border: 2px double brown; border-radius: 30px; padding: 10px;">{{ post.content }}</p>
         </div>
+
         <div>
+
             <h3>Comments</h3>
+
             <div>
+
                 {% for comment in comments %}
-                    <div>
+                    <div style="border: 1px solid saddlebrown; padding: 10px; border-radius: 10px; margin: 10px;" >
                         {% if request.user == comment.author.user %}
                             <a href="{% url 'delete-comment' comment.id %}">Delete</a>
                         {% endif %}
-                        <small>@{{ comment.author }} -- {{ comment.date_posted|timesince }}</small>
+                        <small>@{{ comment.author }} -- {{ comment.date_posted|timesince }} ago</small>
                         <p>{{ comment.content }}</p>
-                        <hr>
+
                     </div>
                 {% endfor %}
+
             </div>
+
             {% if request.user.is_authenticated %}
+
                 <div>
                     <form method="POST" action="">
                         {% csrf_token %}
@@ -31,8 +38,11 @@
                         <button type="submit">Done</button>
                     </form>
                 </div>
+
             {% endif %}
+
         </div>
+
     </div>
 
 </div>
