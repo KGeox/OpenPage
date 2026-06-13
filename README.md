@@ -3,9 +3,22 @@
 # Openpage
 
 openpage is an open source social media platform for book's lovers
+> check it out : [here](https://horizons.hackclub.com/app?noanimate)
 
+![](/image_01.png)
 
 </div>
+
+## Description
+> This is a social media Is made to scroll through book and get the habit of learning
+
+## Motivation
+> My motivation for making this website is to make poeple to read more
+
+## How it works
+
+
+---
 
 ## What can you do in the website?
 
@@ -43,7 +56,7 @@ As an admin, you can...
   3. Bookclubs
   4. Books
   5. Comments
-  6. Chats in bookclus
+  6. Chats in bookclubs
 
 - In addition only the admin can validate a proposed book
   (to verify the veracity of the book proposed)
