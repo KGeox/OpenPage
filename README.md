@@ -14,8 +14,23 @@ openpage is an open source social media platform for book's lovers
 
 ## Motivation
 > My motivation for making this website is to make poeple to read more
+> 
+> I really wanted to create something at the same time cool and useful
 
 ## How it works
+
+---
+
+## How to install/reuse it
+1. clone the repo
+2. create an environment 
+3. download the libraries needed ( they can be found in the requirements.txt)
+>after installinig it
+4. go to your terminal(inside the project directory) and type 'python manage.py makemigrations'
+5. then 'python manage.py migrate'
+6. and then 'python manage.py runserver'
+7. click on the link that will appear (it should be 'http://127.0.0.1:8000/')
+8. Now you are ready to use the website
 
 
 ---
@@ -71,4 +86,32 @@ As the programmer, you can...
   * make CRUD on the entire database and code
   * completely change everything
 
+## What you can do for this project 
+
+- Send feedbacks about anything you find can be improved
+- Propose new features
+- Report any bug
+- send me a message if you want to collaborate
+- or even just passing times to time on it will be great
+
+---
+
+---
+---
+
+### Made with:
+
+- Python
+- Django
+- Html
+- Css
+- javascript
+
+---
+---
+
+---
+
+
+hope this readme will help thanks for reading
 
