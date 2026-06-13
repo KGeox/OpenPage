@@ -3,7 +3,7 @@
 # Openpage
 
 openpage is an open source social media platform for book's lovers
-> check it out : [here](https://horizons.hackclub.com/app?noanimate)
+> check it out : [here](https://openpage.pythonanywhere.com/)
 
 ![](/image_01.png)
 
