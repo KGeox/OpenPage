@@ -111,7 +111,10 @@ As the programmer, you can...
 ---
 
 ---
-
+#### AI usage 🥲
+- for like button logic
+- some 3 css effects
+- and advice about colors
 
 hope this readme will help thanks for reading
 
