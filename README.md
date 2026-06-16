@@ -6,7 +6,7 @@ openpage is an open source social media platform for book's lovers
 > check it out : [here](https://openpage.pythonanywhere.com/)
 
 ![](/image_01.png)
-
+![](/image_02.png)
 </div>
 
 ## Description
