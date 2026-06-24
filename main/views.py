@@ -53,7 +53,7 @@ def home(request):
     }
     return render(request, "home.html", context)
 
-
+@login_required(login_url='login')
 def profile(request, pk):
     profile = Profile.objects.get(id=pk)
     posts = profile.post_set.all()
@@ -63,7 +63,7 @@ def profile(request, pk):
     context = {'profile': profile, 'posts': posts, 'post_comments': post_comments, 'books': books, 'bookclubs': bookclubs}
     return render(request, "profile.html", context)
 
-
+@login_required(login_url='login')
 def editProfile(request):
     profile = request.user.profile
     form = ProfileForm(instance=profile)
@@ -92,7 +92,7 @@ def post(request, pk):
     context = {'post':post, 'comments': comments}
     return render(request, "main/post.html",context)
 
-
+@login_required(login_url='login')
 def createPost(request):
     form = PostForm()
     if request.method == 'POST':
@@ -105,7 +105,7 @@ def createPost(request):
     context = {'form': form}
     return render(request,'main/post_form.html', context )
 
-
+@login_required(login_url='login')
 def updatePost(request, pk):
     post = Post.objects.get(id=pk)
     form = PostForm(instance=post)
@@ -122,7 +122,7 @@ def updatePost(request, pk):
     context = {'form': form}
     return render(request,'main/post_form.html', context)
 
-
+@login_required(login_url='login')
 def deletePost(request, pk):
     post = Post.objects.get(id=pk)
 
@@ -137,7 +137,7 @@ def deletePost(request, pk):
     return render(request,'main/post_form.html', context)
 
 
-@login_required
+@login_required(login_url='login')
 def toggle_like(request, pk):
     post = get_object_or_404(Post, id=pk)
 
@@ -161,7 +161,7 @@ def book(request, pk):
     context = {'book': book, 'posts':posts}
     return render(request, 'main/book.html', context)
 
-
+@login_required(login_url='login')
 def createBook(request):
     form = BookForm()
     if request.method == 'POST':
@@ -190,7 +190,7 @@ def bookclub(request, pk):
     context = {'bookclub': bookclub, 'chats':chats, 'profile':profile}
     return render(request,'main/bookclub.html', context)
 
-
+@login_required(login_url='login')
 def createBookClub(request):
     form = BookClubForm()
     if request.method == 'POST':
@@ -205,7 +205,7 @@ def createBookClub(request):
     context = {'form': form}
     return render(request,'main/post_form.html', context)
 
-
+@login_required(login_url='login')
 def updateBookClub(request, pk):
     bookClub = BookClub.objects.get(id=pk)
     form = BookClubForm(instance=bookClub)
@@ -219,11 +219,11 @@ def updateBookClub(request, pk):
     context = {'form': form}
     return render(request,'main/post_form.html', context)
 
-
+@login_required(login_url='login')
 def deleteBookClub(request, pk):
     pass
 
-
+@login_required(login_url='login')
 def deleteComment(request,pk):
     comment = Comment.objects.get(id=pk)
 

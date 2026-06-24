@@ -1,23 +1,27 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div>
+<div class="bookclub_page">
 
     <div>
 
-        <div style="border: 3px solid var(--card-top); padding: 5px; border-radius: 20px; background: var(--main)">
+        <div class="bookclub_head">
             <h1>{{ post.title }}</h1>
-            <p style=" border: 2px double brown; border-radius: 30px; padding: 10px;">{{ post.content }}</p>
+            <div class="bookclub_currentbook">
+                <p>{{ post.content }}</p>
+            </div>
         </div>
 
-        <div>
+        <div class="bookclub_chat">
+            <div class="chat_header">
+                <h3>Comments</h3>
+            </div>
 
-            <h3>Comments</h3>
 
-            <div>
+            <div class="chat-messages">
 
                 {% for comment in comments %}
-                    <div style="border: 1px solid saddlebrown; padding: 10px; border-radius: 10px; margin: 10px;" >
+                    <div class="p_message" >
                         {% if request.user == comment.author.user %}
                             <a href="{% url 'delete-comment' comment.id %}">Delete</a>
                         {% endif %}
@@ -32,7 +36,7 @@
             {% if request.user.is_authenticated %}
 
                 <div>
-                    <form method="POST" action="">
+                    <form method="POST" action="" class="chat_input_area">
                         {% csrf_token %}
                         <input type="text" name="content" placeholder="Comment..." required>
                         <button type="submit">Done</button>

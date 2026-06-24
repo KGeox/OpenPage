@@ -7,7 +7,7 @@
                 <div>
                     <h2><a href="{% url 'book' book.id %}">{{ book.title }}</a></h2>
                     <p>{{ book.author }}</p>
-                    <p>{{ book.summary }}</p>
+                    <p>{{ book.summary|truncatechars:200 }}</p>
                 </div>
                 <div>
                     <img style="width: 100px; height: 130px; padding: 5px; border-radius: 20%;" src="{{ book.image.url }}">

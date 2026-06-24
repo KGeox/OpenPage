@@ -1,26 +1,31 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div>
+<div class="bookclub_page">
 
-    <div>
-        <h1>{{ bookclub.name }}</h1>
-        <p>{{ bookclub.description }}</p>
-        <h3>Hosted by: {{ bookclub.host }}</h3>
+    <div class="bookclub_head">
+        <h1 >{{ bookclub.name }}</h1>
+
+        <div class="bookclub_info">
+
+            <h3>Hosted by: {{ bookclub.host }}</h3>
+            <h3>{{ bookclub.members.count }} members</h3>
+            <p>{{ bookclub.description }}</p>
+        </div>
+
+        <div class="bookclub_currentbook">
+            <strong>Currently reading: {{ bookclub.current_book.title }}</strong>
+            <small> by {{ bookclub.current_book.author }}</small>
+        </div>
     </div>
 
-    <div>
-        <strong>Currently reading: {{ bookclub.current_book.title }}</strong>
-        <small> by {{ bookclub.current_book.author }}</small>
-    </div>
 
-    <div>Hosted by <strong>{{ bookclub.host }}</strong></div>
-
-    <hr>
-
-    <h3>{{ bookclub.members.count }} members</h3>
 
     <div class="bookclub-chat">
+        <div class="chat_header">
+            Let's Chat
+        </div>
+
         <div class="chat-messages">
             {% if chats %}
 
@@ -35,7 +40,7 @@
 
                         {% else %}
                             <div class="p_message not_you">
-                                <div class="chat_message_header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }}</div>
+                                <div class="chat_message_header">{{ chat.author.user.username }} - {{ chat.date_written|timesince }} ago</div>
                                 <div class="chat_message_body">{{ chat.content }}</div>
                             </div>
                         {% endif %}
@@ -44,7 +49,7 @@
 
                     {% endfor %}
                 </div>
-                <hr>
+
 
             {% else %}
                 <h3>No message yet. Start the conversation!</h3>
@@ -52,11 +57,13 @@
         </div>
 
         <div>
-            <form method="POST" action="">
-                {% csrf_token %}
-                <input type="text" name="content" placeholder="Type your message about the book here" required>
-                <button type="submit">Send</button>
-            </form>
+            {% if request.user.is_authenticated %}
+                <form method="POST" action="" class="chat_input_area">
+                    {% csrf_token %}
+                    <input type="text" name="content" placeholder="Type your message about the book here" required>
+                    <button type="submit">Send</button>
+                </form>
+            {% endif %}
         </div>
     </div>
 </div>
