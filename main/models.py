@@ -45,9 +45,18 @@ class Book(models.Model):
     genre = models.TextField(max_length= 100, choices=GENRE_CHOICES, default="other")
     summary = models.TextField(max_length=5000, null=True)
     valid = models.BooleanField(default=False)
+    likes = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.title + " by " + self.author
+
+class BookLike(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user + " likes " + self.post
 
 class Post(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)

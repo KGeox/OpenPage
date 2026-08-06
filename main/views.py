@@ -1,3 +1,4 @@
+from builtins import id
 from multiprocessing import context
 
 from django.contrib import messages
@@ -136,6 +137,23 @@ def deletePost(request, pk):
 
     return render(request,'main/post_form.html', context)
 
+@login_required(login_url='login')
+def book_toggle_like(request, pk):
+    book = get_object_or_404(Book, id=pk)
+
+    b_like = BookLike.objects.filter(
+        user = request.user.profile,
+        post= post
+    )
+
+    if b_like.exists():
+        b_like.delete()
+    else:
+        BookLike.objects.create(
+            user= request.user.profile,
+            post =post
+        )
+    return redirect('home')
 
 @login_required(login_url='login')
 def toggle_like(request, pk):

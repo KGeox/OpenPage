@@ -25,7 +25,7 @@
                         {% if request.user == comment.author.user %}
                             <a href="{% url 'delete-comment' comment.id %}">Delete</a>
                         {% endif %}
-                        <small>@{{ comment.author }} -- {{ comment.date_posted|timesince }} ago</small>
+                        <small style="font-size: 10px;">@{{ comment.author }} -- {{ comment.date_posted|timesince }} ago</small>
                         <p>{{ comment.content }}</p>
 
                     </div>
