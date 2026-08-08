@@ -1,20 +1,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="refresh" content="100">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>OpenPage</title>
+
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 </head>
-<body>
+<body >
 {% include 'navbar.html' %}
 
 {% block content %}
 
 {% endblock %}
-
+<script src="{% static 'scripts/script.js' %}"></script>
 </body>
 </html>
+
+<!--TODO:
+        add darkmode -->

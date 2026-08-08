@@ -1,3 +1,7 @@
+# TODO: add personalized recommendations
+
+# TODO: add notifications
+
 from builtins import id
 from multiprocessing import context
 

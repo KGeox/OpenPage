@@ -1,4 +1,5 @@
 :root{
+    --bg: white;
     --color-1: #efc898;
     --color-2: #f9dfa4;
     --color-3: #eaab5d;
@@ -15,9 +16,12 @@
     --link_col: gold;
     --liked: gold;
 }
+.darkmode{
+    --bg: #1f1c18;
+}
 
 body{
-    background: white;
+    background-color: var(--bg);
 }
 
 img{
@@ -403,6 +407,34 @@ a{
 
 .like_btn:hover{
     color: var(--liked);
+}
+
+#dark-light-mode {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#dark-light-mode svg{
+    fill: var(--card-top);
+}
+
+#dark-light-mode svg:last-child{
+    display: none;
+}
+
+.darkmode #dark-light-mode svg:first-child{
+    display: none;
+}
+
+.darkmode #dark-light-mode svg:last-child{
+    display: block;
 }
 
 @media (max-width: 900px) {

@@ -10,6 +10,7 @@ import datetime
 # Create your models here.
 
 class Profile(models.Model):
+    #TODO: possibility to follow and be followed
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = models.ImageField(default='default.jpg', upload_to='profile_pics')
     bio = models.TextField()
@@ -23,6 +24,7 @@ class Profile(models.Model):
 
 
 class Book(models.Model):
+    # todo: add star ratings and reviews
     GENRE_CHOICES = [
         ('fiction', 'Fiction'),
         ('romance', 'Romance'),
@@ -45,7 +47,7 @@ class Book(models.Model):
     genre = models.TextField(max_length= 100, choices=GENRE_CHOICES, default="other")
     summary = models.TextField(max_length=5000, null=True)
     valid = models.BooleanField(default=False)
-    likes = models.IntegerField(default=0)
+    # likes = models.IntegerField(default=0)
 
 
     def __str__(self):
