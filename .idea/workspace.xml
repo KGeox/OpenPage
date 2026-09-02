@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="trying to add google auth">
+    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="fixing auth errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenPage/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPage/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OpenPage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login_register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -461,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1786633109894</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="fixing auth errors">
+      <option name="closed" value="true" />
+      <created>1788329510591</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1788329510591</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,6 +492,7 @@
     <MESSAGE value="adding posibility to like books" />
     <MESSAGE value="adding light/darkmode switch" />
     <MESSAGE value="trying to add google auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to add google auth" />
+    <MESSAGE value="fixing auth errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing auth errors" />
   </component>
 </project>

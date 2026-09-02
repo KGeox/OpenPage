@@ -1,23 +1,22 @@
 :root{
-    --bg: white;
-    --color-1: #efc898;
-    --color-2: #f9dfa4;
-    --color-3: #eaab5d;
-    --nav: #efc898;
-    --main: rgb(225 205 159 / 0.93);
-    --side: #e8c07a;
+    --bg: #ebd4b5;
+    /*--nav: #efc898;*/
+    /*--main: rgb(225 205 159 / 0.93);*/
+    /*--side: #e8c07a;*/
     --int_bg: rgb(249 223 164 / 0.20);
-    --border: gold;
+    /*--border: gold;*/
+    --border-rad: 20px;
     --Bborder: #f9dfa4;
+    --border-wid:10px;
     --card-top: #eaab5d;
-    --card_bot: rgb(246 214 174 / 0.5);
+    --card_bot: rgb(246 214 174);
     --card-wid: 320px;
     --card-high: 320px;
-    --link_col: gold;
-    --liked: gold;
+    /*--link_col: gold;*/
+    /*--liked: gold;*/
 }
 .darkmode{
-    --bg: #1f1c18;
+    --bg: #4b382c;
 }
 
 body{
@@ -35,7 +34,7 @@ img{
 
 .topics_component{
     background: var(--int_bg);
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     border: 5px solid var(--Bborder);
     padding: 10px;
     margin: 10px;
@@ -43,7 +42,7 @@ img{
 
 .feed_component{
     background: var(--int_bg);
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     padding: 10px;
     margin: 10px;
 }
@@ -51,7 +50,7 @@ img{
 .activity_component{
     background: var(--int_bg);
     border: 5px solid var(--Bborder);
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     padding: 10px;
     margin: 10px;
 }
@@ -60,7 +59,7 @@ img{
     top: 10px;
     display: flex;
     background: var(--nav);
-    border-radius: 30px;
+    border-radius: var(--border-rad);
     padding: 10px 20px;
     align-items: center;
     position: sticky;
@@ -73,7 +72,7 @@ img{
 }
 
 .search_bar{
-    border-radius: 100px;
+    border-radius: var(--border-rad);
     padding: 5px;
 }
 
@@ -82,7 +81,7 @@ img{
 }
 
 .search_input{
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     padding: 4px;
     background-color: rgb(255 253 242 / 0.9);
 }
@@ -95,13 +94,13 @@ img{
     height: 100%;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     transform-origin: 0;
 }
 
 .post_card{
     background: var(--card_bot);
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     margin: 10px;
     width: var(--card-wid);
     height: var(--card-high);
@@ -112,7 +111,7 @@ img{
 .post_card_top_image_box{
     width: 90%;
     height: 50%;
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     margin: 5px auto;
 
 }
@@ -120,7 +119,7 @@ img{
 .post_card_top_image{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-rad);
 }
 
 .post_card:hover .post_card_top {
@@ -137,7 +136,7 @@ img{
 .post_image{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     margin: 5px auto;
 }
 
@@ -154,7 +153,7 @@ img{
 button{
     border: none;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: var(--border-rad);
     cursor: pointer;
 }
 
@@ -172,7 +171,7 @@ button{
     width: 300px;
     height: 400px;
     box-shadow: 0px 0px 120px 50px #edaf45;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
 }
 
 .bookclub_control_links{}
@@ -185,7 +184,7 @@ button{
 .bookclub_head{
     background: var(--card-top);
     padding: 20px;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     margin-bottom: 20px;
     color: whitesmoke;
     box-shadow: 0 6px 20px var(--card-top);
@@ -204,7 +203,7 @@ button{
     background: var(--Bborder);
     border: 3px solid var(--Bborder);
     padding: 10px;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
 
 }
 
@@ -219,7 +218,7 @@ button{
     color:whitesmoke;
     padding: 8px;
     font-size: 20px;
-    border-radius: 2px;
+    border-radius: var(--border-rad);
 }
 
 .chat-messages{
@@ -236,7 +235,7 @@ button{
 }
 .profile_infos p{
     background: var(--card-top);
-    border-radius: 40px;
+    border-radius: var(--border-rad);
     padding: 10px;
 }
 
@@ -246,7 +245,7 @@ button{
 }
 
 .profile_imagebox{
-    border-radius: 100%;
+    border-radius:100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,7 +253,7 @@ button{
 }
 
 .profile_image{
-    border-radius: 100%;
+    border-radius: 50%;
     margin-top: auto;
     margin-bottom: auto;
     width: 400px;
@@ -264,7 +263,7 @@ button{
 
 a{
     color: var(--link_col);
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     box-shadow: 0px 0px 4px 4px rgb(244 200 122 / 0.86);
     padding: 4px;
     margin: 4px;
@@ -275,7 +274,7 @@ a{
     grid-template-columns: 1fr 1fr;
     color: #775b39;
     font-size: 20px;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
     padding: 20px;
     gap: 10px;
 
@@ -283,7 +282,7 @@ a{
 
 .form_info{
     background: white;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
     padding: 8px 30px 8px 12px;
     font-family: ui-monospace;
     font-size: 30px;
@@ -296,7 +295,7 @@ a{
     background: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     padding: 8px 30px 8px 12px;
     border: 2px solid peru;
     margin: 4px 10px 20px 10px;
@@ -315,31 +314,31 @@ a{
     width: 600px;
     height: 800px;
     background-color: whitesmoke;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
 }
 .page1{
     width: 590px;
     height: 800px;
     background-color: whitesmoke;
-    border-radius: 4px;
+    border-radius:var(--border-rad);
 }
 .page2{
     width: 580px;
     height: 800px;
     background-color: whitesmoke;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
 }
 .page3{
     width: 570px;
     height: 800px;
     background-color: whitesmoke;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
 }
 .page4{
     width: 560px;
     height: 800px;
     background-color: whitesmoke;
-    border-radius: 4px;
+    border-radius: var(--border-rad);
 }
 
 .message_box{
@@ -353,7 +352,7 @@ a{
     padding-bottom: 0px;
     gap: 1px;
     margin-bottom: 5px;
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     max-width: 70%;
     background-color: var(--card-top);
 }
@@ -380,7 +379,7 @@ a{
 .chat_input_area input{
     flex: 1;
     border: none;
-    border-radius: 20px;
+    border-radius: var(--border-rad);
     padding: 10px;
 }
 
@@ -413,7 +412,7 @@ a{
     height: 50px;
     width: 50px;
     padding: 0;
-    border-radius: 50%;
+    border-radius:50%;
     background-color: gold;
     display: flex;
     justify-content: center;
