@@ -121,3 +121,22 @@ class Chat_BC(models.Model):
 
     def __str__(self):
         return self.author.user.username + " wrote " + "'" + self.content +"'"
+
+class B_rating(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name= 'rating')
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    description = models.TextField(blank=True, null=True)
+    rating = models.PositiveIntegerField(choices=(
+        (1, "1 star"),
+        (2, '2 stars'),
+        (3, '3 stars'),
+        (4, '4 stars'),
+        (5, '5 stars')
+    ))
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('book', 'profile')
+
+    def __str__(self):
+        return f"{self.profile}'s {self.rating}-star rating for {self.book}"

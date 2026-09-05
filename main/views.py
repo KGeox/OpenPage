@@ -2,17 +2,21 @@
 
 # TODO: add notifications
 
-from builtins import id
-from multiprocessing import context
+# from builtins import id
+# from multiprocessing import context
 
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.messages.storage import session
+# from django.contrib.messages.storage import session
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
 from .models import Book, BookClub,  Post, Profile, Comment, Chat_BC
+from .serializers import B_ratingSerializer, BookSerializer
 from .forms import *
 from django.db.models import Q
 
@@ -309,4 +313,19 @@ def logoutUser(request):
 def about(request):
     return render(request, 'about.html')
 
+class BookViewSet(ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
 
+class B_ratingViewSet(ModelViewSet):
+    # queryset = B_rating.objects.all()
+    serializer_class = B_ratingSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return B_rating.objects.filter(book_id = self.kwargs['product_pk'])
+
+    def get_serializer_context(self):
+        profile_id = self.request.user.id
+        book_id = self.kwargs["product_pk"]
+        return {"profile_id": profile_id, "book_id": book_id}

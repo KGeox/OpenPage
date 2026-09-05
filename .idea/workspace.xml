@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="fixing auth errors">
+    <list default="true" id="57306b62-097f-45fe-9042-ed9308cdb353" name="Changes" comment="updating and arranging ui using vars">
+      <change afterPath="$PROJECT_DIR$/main/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenPage/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPage/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OpenPage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/OpenPage/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +26,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -465,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788329510591</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="updating and arranging ui using vars">
+      <option name="closed" value="true" />
+      <created>1788346368091</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1788346368091</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,6 +506,7 @@
     <MESSAGE value="adding light/darkmode switch" />
     <MESSAGE value="trying to add google auth" />
     <MESSAGE value="fixing auth errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing auth errors" />
+    <MESSAGE value="updating and arranging ui using vars" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating and arranging ui using vars" />
   </component>
 </project>

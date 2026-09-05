@@ -1,5 +1,14 @@
-from django.urls import path
+from allauth.idp.oidc.internal.oauthlib.authorization_codes import lookup
+from django.urls import path, include
+from rest_framework import routers
 from . import views
+
+router = routers.DefaultRouter()
+
+router.register("books", views.BookViewSet)
+
+book_router = routers.DefaultRouter(router, "books",lookup='book')
+book_router.register("ratings", views.B_ratingViewSet, basename= "rating")
 
 urlpatterns = [
     path('',views.home,name='home'),
@@ -22,5 +31,7 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('register/', views.registerPage, name='register'),
     path('about',views.about,name='about'),
+    path("router", include(router.urls)),
+    path("book_router", include(book_router.urls))
 
 ]
